@@ -17,12 +17,16 @@ module.exports.renderNewFrom = (req, res) => {
 // to create listing in db
 module.exports.createListing = async (req,res) => {
 
+    let url = req.file.path;
+    let filename = req.file.filename;
+
     // let {title, description, image, price, location, country} = req.body;
     let listing = req.body.listing;
-
     const newListing = new Listing(listing);
 
     newListing.owner = req.user._id;
+    newListing.image = { url, filename};
+
     await newListing.save();
 
     req.flash("success","New Listing Created Successfully!");

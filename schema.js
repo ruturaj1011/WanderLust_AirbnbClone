@@ -22,10 +22,7 @@ module.exports.listingSchema = Joi.object( {
         description : Joi.string().required(),
         image : Joi.object({
             filename: Joi.string(),  // Optional field
-            url: Joi.string().allow("", null).uri().default("https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=600"),  // Default value if not provided
-        }).default({
-            filename: "",
-            url: "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=600",
+            url: Joi.string()
         }),
         price : Joi.number().required().min(1),
         country : Joi.string().required(),
