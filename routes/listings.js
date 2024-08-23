@@ -44,6 +44,7 @@ router.route("/:id/edit")
     .put(                                                         // update in dB
         isLoggedIn,
         isOwner,
+        upload.single("listing[image]"),
         validateListing,
         wrapAsync(listingControllers.updateListing)
     );
