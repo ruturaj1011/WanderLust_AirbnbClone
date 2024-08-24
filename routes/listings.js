@@ -49,5 +49,9 @@ router.route("/:id/edit")
         wrapAsync(listingControllers.updateListing)
     );
 
+router.route("/search")
+    .post(                                                        // edit route
+        wrapAsync(listingControllers.searchListings)
+    )
 
 module.exports = router;

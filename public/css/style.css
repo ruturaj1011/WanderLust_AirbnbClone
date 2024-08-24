@@ -144,10 +144,5 @@ body {
 
 /* map */
 #map { 
-    height: 400px;
-    width: 80vw;
-    position: absolute; 
-    top: 0; 
-    bottom: 0; 
-    width: 100%; 
+    height: 180px; 
 }

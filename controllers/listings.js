@@ -13,6 +13,18 @@ module.exports.index = async(req,res) => {
     res.render("listings/index.ejs", {allListings});
 };
 
+// for search listings result
+module.exports.searchListings = async (req,res) => {
+    
+    let {countryVal} = req.body;
+
+    // console.log(countryVal);
+
+    let allListings = await Listing.find( {country : countryVal} );
+
+    res.render("listings/index.ejs", {allListings});
+}
+
 // for new route -> to render new form
 module.exports.renderNewFrom = (req, res) => {
 
