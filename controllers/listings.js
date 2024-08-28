@@ -1,9 +1,6 @@
 const Listing = require("../models/listing");
+const { geocode } = require('@esri/arcgis-rest-geocoding');
 
-// const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
-// const mapToken = process.env.MAP_TOKEN;
-
-// const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 // for index route
 module.exports.index = async(req,res) => {
@@ -33,15 +30,6 @@ module.exports.renderNewFrom = (req, res) => {
 
 // to create listing in db
 module.exports.createListing = async (req,res) => {
-
-    // let response = await geocodingClient.forwardGeocode({
-    //     query: req.body.listing.location,
-    //     limit: 1
-    // })
-    // .send();
-
-    // console.log(response);
-    // res.send("done");
 
     let url = req.file.path;
     let filename = req.file.filename;
